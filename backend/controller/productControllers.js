@@ -20,7 +20,26 @@ const getProductById = async (req, res) => {
     }
 }
 
+const postProduct = async (req, res) => {
+      const postProduct = new Product({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        countInStock: req.body.countInStock,
+        imageUrl: req.body.imageUrl,
+        type: req.body.type,
+      });
+
+      try {
+        const savedProduct = await postProduct.save();
+        res.json(savedProduct);
+      } catch (err) {
+        res.json({ message: err });
+      }
+}
+
 module.exports= {
     getAllProducts,
     getProductById,
+    postProduct
 }

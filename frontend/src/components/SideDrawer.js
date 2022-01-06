@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -7,11 +7,11 @@ export default function SideDrawer({ show, click }) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const [token, setToken] = useState(null);
+  // const [token, setToken] = useState(null);
 
-  setInterval(() => {
-    setToken(localStorage.getItem("authToken"));
-  }, 1000);
+  // setInterval(() => {
+  //   setToken(localStorage.getItem("authToken"));
+  // }, 1000);
 
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => qty + Number(item.qty), 0);
