@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+
 //  Routing
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -12,6 +13,11 @@ import LoginScreen from "./screens/LoginScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import ResetPasswordScreen from "./screens/ResetPasswordScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import SportsScreen from "./screens/SportsScreen";
+import ShoesScreen from "./screens/ShoesScreen";
+import FashonScreen from "./screens/FashonScreen";
+import ElectronicsScreen from "./screens/ElectronicsScreen";
+
 
 
 //componets
@@ -33,7 +39,7 @@ function App({click}) {
       <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
       <main>
         <Switch>
-          <PrivateRoute exact path="/" component={HomeScreen}/>
+          <PrivateRoute exact path="/" component={HomeScreen} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
           <Route
@@ -45,6 +51,10 @@ function App({click}) {
           {/* <Route exact path="/" component={HomeScreen} /> */}
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
+          <Route exact path="/sports" component={SportsScreen} />
+          <Route exact path="/shoes" component={ShoesScreen} />
+          <Route exact path="/fashon" component={FashonScreen} />
+          <Route exact path="/electronics" component={ElectronicsScreen} />
         </Switch>
       </main>
       <Footer />

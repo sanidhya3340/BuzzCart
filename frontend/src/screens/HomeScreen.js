@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Product from "../components/Products/Product";
 import ReactLoading from "react-loading";
+import { Link } from "react-router-dom";
 // import {productData} from '../components/Products/ProductData'
 
 //actions
@@ -53,7 +54,10 @@ export default function HomeScreen({history}) {
 
 
   return error1 ? (
-    <span>{error1}</span>
+    <div>
+      <span>{error1}</span>
+      <Link to="/login">Login</Link>
+    </div>
   ) : (
     <div className="mx-16 my-12">
       <p className="lg:text-3xl md:text-2xl text-xl font-bold">
@@ -84,9 +88,7 @@ export default function HomeScreen({history}) {
           ))
         )}
       </div>
-      <button onClick={logoutHandler}>
-        Logout
-      </button>
+      <button onClick={logoutHandler}>Logout</button>
     </div>
   );
 }

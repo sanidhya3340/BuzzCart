@@ -10,8 +10,8 @@ export default function Product({
 }) {
     return (
       <div className="bg-gray-200 shadow-md flex flex-col justify-between transition duration-500 ease-in-out hover:scale-180 hover:shadow-xl ">
-        <div className="mx-4 my-4 ">
-          <img src={imgUrl} alt="" className="h-72" />
+        <div className="flex mx-4 my-4 ">
+          <img src={imgUrl} alt={name} className="h-72 items-center justify-center" />
         </div>
         <div className="mx-4 text-md md:text-base lg:text-lg font-semibold">
           {name}
