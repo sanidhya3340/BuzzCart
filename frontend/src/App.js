@@ -17,7 +17,9 @@ import SportsScreen from "./screens/SportsScreen";
 import ShoesScreen from "./screens/ShoesScreen";
 import FashonScreen from "./screens/FashonScreen";
 import ElectronicsScreen from "./screens/ElectronicsScreen";
-
+import FurnitureScreen from "./screens/FurnitureScreen";
+import AutomobileScreen from "./screens/AutomobileScreen";
+import ThankYou from './screens/ThankYou';
 
 
 //componets
@@ -51,10 +53,25 @@ function App({click}) {
           {/* <Route exact path="/" component={HomeScreen} /> */}
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
-          <Route exact path="/sports" component={SportsScreen} />
-          <Route exact path="/shoes" component={ShoesScreen} />
-          <Route exact path="/fashon" component={FashonScreen} />
-          <Route exact path="/electronics" component={ElectronicsScreen} />
+          <Route exact path="/categories/sports" component={SportsScreen} />
+          <Route exact path="/categories/shoes" component={ShoesScreen} />
+          <Route exact path="/categories/fashon" component={FashonScreen} />
+          <Route
+            exact
+            path="/categories/electronics"
+            component={ElectronicsScreen}
+          />
+          <Route
+            exact
+            path="/categories/furniture"
+            component={FurnitureScreen}
+          />
+          <Route
+            exact
+            path="/categories/automobile"
+            component={AutomobileScreen}
+          />
+          <Route exact path="/thankyou" component={ThankYou} />
         </Switch>
       </main>
       <Footer />

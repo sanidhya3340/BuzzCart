@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 export default function Navbar({ click, show }) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  const user = JSON.parse(localStorage.getItem("authUser"));
-  console.log(user);
+  // const user = JSON.parse(localStorage.getItem("authUser"));
+  // console.log(user);
 
   const [token, setToken] = useState(null);
 

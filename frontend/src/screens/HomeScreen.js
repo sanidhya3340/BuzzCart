@@ -5,6 +5,8 @@ import Product from "../components/Products/Product";
 import ReactLoading from "react-loading";
 import { Link } from "react-router-dom";
 // import {productData} from '../components/Products/ProductData'
+import data from "../data/homepallet";
+import HomeCard from "../components/HomeCard";
 
 //actions
 import { getProducts as listProducts } from "../redux/actions/productActions";
@@ -35,7 +37,7 @@ export default function HomeScreen({history}) {
         setPrivateData(data.data);
       } catch (error1) {
         localStorage.removeItem("authToken");
-        setError1("You are not authorized please login");
+        setError1("You are not authorized please ");
       }
     };
 
@@ -56,37 +58,56 @@ export default function HomeScreen({history}) {
   return error1 ? (
     <div>
       <span>{error1}</span>
-      <Link to="/login">Login</Link>
+      <Link to="/login" className="p-2 bg-black text-white">
+        Login
+      </Link>
     </div>
   ) : (
-    <div className="mx-16 my-12">
-      <p className="lg:text-3xl md:text-2xl text-xl font-bold">
-        Latest Poducts
-      </p>
-      <div className="grid gap-4 md:grid-cols-2 mt-8 lg:grid-cols-3">
-        {loading ? (
-          // <p>Loading..</p>
-          <ReactLoading
-            type={"balls"}
-            color="#03fc4e"
-            height={"20%"}
-            width={"20%"}
-          />
-        ) : error ? (
-          <p>{error}</p>
-        ) : (
-          products.map((product, key) => (
-            <Product
-              key={key}
-              productId={product._id}
-              name={product.name}
-              imgUrl={product.imageUrl}
-              description={product.description}
-              price={product.price}
-              countInStock
+    <div>
+      <div className="m-2">
+        <div className="min-h-screen grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {data.map((items, k) => (
+            <HomeCard
+              name={items.name}
+              img={items.img}
+              goto={items.goto}
+              key={k}
             />
-          ))
-        )}
+          ))}
+        </div>
+      </div>
+      <div className="mx-16 my-12">
+        <p className="lg:text-3xl md:text-2xl text-xl font-bold">
+          Latest Poducts
+        </p>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {loading ? (
+            // <p>Loading..</p>
+            <ReactLoading
+              type={"balls"}
+              color="#03fc4e"
+              height={"20%"}
+              width={"20%"}
+            />
+          ) : error ? (
+            <div>
+              <p>{error}</p>
+              <p>{privateData}</p>
+            </div>
+          ) : (
+            products.map((product, key) => (
+              <Product
+                key={key}
+                productId={product._id}
+                name={product.name}
+                imgUrl={product.imageUrl}
+                description={product.description}
+                price={product.price}
+                countInStock
+              />
+            ))
+          )}
+        </div>
       </div>
       <button onClick={logoutHandler}>Logout</button>
     </div>

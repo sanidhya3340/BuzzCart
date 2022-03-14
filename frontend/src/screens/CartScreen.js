@@ -57,9 +57,9 @@ export default function CartScreen() {
           <p className="mt-2">${getCartSubtotal().toFixed(2)}</p>
         </div>
         <div className="bg-gray-100 shadow-md hover:shadow-lg mt-2 py-2 flex items-center justify-center">
-          <button className="bg-black hover:shadow-lg text-white font-bold px-4 py-2">
+          <Link to="/thankyou" className="bg-black hover:shadow-lg text-white font-bold px-4 py-2">
             Proceed to Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>
